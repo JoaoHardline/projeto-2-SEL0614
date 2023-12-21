@@ -98,7 +98,7 @@ void interruption() iv 0x0008 ics ICS_AUTO {
             DisplayNumber(number);    // Coloca o numero no display
             number++;
 
-            if(number == 9){
+            if(number > 9){
                       number = 0;  // Reseta contagem
             }
 
@@ -126,5 +126,5 @@ void main() {
      configMCU();
      configTIMER();
      configInterruption();
-     while(true);
+     while(1);
 }

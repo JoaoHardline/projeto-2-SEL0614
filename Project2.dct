@@ -226,7 +226,7 @@ cmip
 cmip_bit
 comfrem
 compare_double
-configinterrupcao
+configinterruption
 configmcu
 configtimer
 crc16ee
@@ -300,6 +300,7 @@ dfn8ef
 dfn8ef_bit
 dir_
 dir__bit
+displaynumber
 div_16x16_s
 div_16x16_s_l
 div_16x16_u
@@ -574,7 +575,7 @@ intedg1
 intedg1_bit
 intedg2
 intedg2_bit
-interrupcao
+interruption
 intsrc
 intsrc_bit
 iofs
@@ -729,8 +730,7 @@ not_write
 not_write_bit
 nrm3232
 nrm4032
-numero
-numerodisplay
+number
 oerr
 oerr_bit
 oespp

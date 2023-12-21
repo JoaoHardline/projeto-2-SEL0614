@@ -2,6 +2,6 @@ main
 	__CC2DW
 	configMCU
 	configTIMER
-	configInterrupcao
-interrupcao
-	numeroDisplay
+	configInterruption
+interruption
+	DisplayNumber

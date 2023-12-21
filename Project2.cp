@@ -1,9 +1,9 @@
-#line 1 "B:/graduacao/periodo6/aplicacao de microprocessadores/Projeto 2 - 7 segmentos em C/Project2.c"
+#line 1 "C:/Users/Nicho/OneDrive/Documentos/GitHub/projeto-2-SEL0614/Project2.c"
+char number = 0;
 
-char numero = 0;
 
 void configTIMER(){
-#line 22 "B:/graduacao/periodo6/aplicacao de microprocessadores/Projeto 2 - 7 segmentos em C/Project2.c"
+#line 23 "C:/Users/Nicho/OneDrive/Documentos/GitHub/projeto-2-SEL0614/Project2.c"
  T0CON = 0B00000100;
  TMR0H = 0XB;
  TMR0L = 0XDC;
@@ -22,7 +22,7 @@ void configMCU(){
  PORTD = 0;
 }
 
-void configInterrupcao(){
+void configInterruption(){
  INTCON.GIEH = 1;
  INTCON.INT0IE = 1;
  INTCON3.INT1IE = 1;
@@ -40,8 +40,8 @@ void configInterrupcao(){
 }
 
 
-void numeroDisplay(char numero){
- switch(numero){
+void DisplayNumber(char number){
+ switch(number){
  case 0:
  LATD = 0b00111111;
  break;
@@ -77,13 +77,13 @@ void numeroDisplay(char numero){
  }
 }
 
-void interrupcao() iv 0x0008 ics ICS_AUTO {
+void interruption() iv 0x0008 ics ICS_AUTO {
  if(INTCON.TMR0IF == 1){
- numeroDisplay(numero);
- numero++;
+ DisplayNumber(number);
+ number++;
 
- if(numero == 9){
- numero = 0;
+ if(number > 9){
+ number = 0;
  }
 
  TMR0H = 0XB;
@@ -94,14 +94,14 @@ void interrupcao() iv 0x0008 ics ICS_AUTO {
  T0CON.T0PS1 = 0;
  T0CON.T0PS2 = 1;
  T0CON.TMR0ON = 1;
- numeroDisplay(numero);
+ DisplayNumber(number);
  INTCON.INT0IF = 0;
  }
  else if(INTCON3.INT1IF == 1){
  T0CON.T0PS1 = 1;
  T0CON.T0PS2 = 0;
  T0CON.TMR0ON = 1;
- numeroDisplay(numero);
+ DisplayNumber(number);
  INTCON3.INT1IF = 0;
  }
 }
@@ -109,7 +109,6 @@ void interrupcao() iv 0x0008 ics ICS_AUTO {
 void main() {
  configMCU();
  configTIMER();
- configInterrupcao();
-
+ configInterruption();
  while(1);
 }
